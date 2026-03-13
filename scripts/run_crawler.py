@@ -21,9 +21,9 @@ def main():
     # To reach 10GB, we need many pages. Adjust max_pages accordingly.
     # Each page ~10-50KB, so 10GB = ~200,000-1,000,000 pages. But that's impractical.
     # For demo, use smaller number.
-    max_pages = 1000  # Adjust as needed
+    max_pages = 50  # Adjust as needed
 
-    crawler = MathDataCrawler(start_urls, max_pages=max_pages)
+    crawler = MathDataCrawler(start_urls, max_pages=max_pages, delay=2.0)  # 2 second delay between requests
     crawler.crawl()
     crawler.save_data()
     print(f"Data collection complete. Size: {crawler.get_data_size():.2f} GB")
